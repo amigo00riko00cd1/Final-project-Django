@@ -2,5 +2,31 @@
 {% load static %}
 
 {% block content %}
-    <p>Main Page</p>
+    {% for item in assembled %}
+
+        <div class="card col-3">
+            <div class="card-footer">
+                <h2>{{item.weapon.title}}</h2>
+            </div>
+            <div class="card-body">
+                <img class="card-img" src="{{item.weapon.image}}">
+                <div>
+                    <h3>indicators</h3>
+                    <p> Отдача: {{item.final_stats.recoil}}</p>
+                    <p> Скорость пули: {{item.final_stats.bullet_speed}}</p>
+                    <p> Точность: {{item.final_stats.accuracy}}</p>
+                    <p> Манёвренность: {{item.final_stats.mobility}}</p>
+                </div>
+            </div>
+            <div class="card-footer">
+                <h3>modules</h3>
+                <div>
+                    {% for module in item.modules.all %}
+                        <P>{{module.title}}</P>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+    {% endfor %}
 {% endblock %}

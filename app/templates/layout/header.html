@@ -14,11 +14,13 @@
                 <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" 
                     role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Дополнительно
+                    оружие
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#">О нас</a></li>
-                    <li><a class="dropdown-item" href="#">Помощь</a></li>
+                    <li><a class="dropdown-item" href="/">все</a></li>
+                    {% for item in allWeapon %}
+                        <li><a class="dropdown-item" href="/{{item.title}}">{{item.title}}</a></li>
+                    {% endfor %}
                 </ul>
                 </li>
             </ul>
